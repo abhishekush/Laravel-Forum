@@ -12,6 +12,8 @@ class ReadThreadsTest extends TestCase
       @test
      */
 
+    protected $thread;
+
     use DatabaseMigrations;
 
     public function setUp(){

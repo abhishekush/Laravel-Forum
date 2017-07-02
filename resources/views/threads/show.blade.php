@@ -5,7 +5,11 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">{{$thread->title}}</div>
+                    <div class="panel-heading">
+                        <a>{{$thread->creator->name}}</a>
+                         posted:
+                        {{$thread->title}}
+                    </div>
 
                     <div class="panel-body">
                        {{$thread->body}}
@@ -19,12 +23,7 @@
 
                 @foreach($thread->replies as $reply)
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">{{$reply->created_at->diffForHumans()}}</div>
-                    <div class="panel-body">
-                        {{$reply->body}}
-                    </div>
-                </div>
+                   @include('threads.reply')
 
                 @endforeach
 
